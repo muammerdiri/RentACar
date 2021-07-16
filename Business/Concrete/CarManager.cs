@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entitiy.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,36 +11,57 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
 
-        ICarDal _inMemoryCarDal;
+        ICarDal _entityFramework;
 
-        public CarManager(ICarDal inMemoryCarDal)
+        public CarManager(EfCarDal _entityFramework)
         {
-            this._inMemoryCarDal = inMemoryCarDal;
+            this._entityFramework = _entityFramework;
         }
 
         public void Add(Car car)
         {
-            _inMemoryCarDal.Add(car);
+
+            if (car.Name.Length >= 2 && car.DailyPrice > 0)
+            {
+               
+                 _entityFramework.Add(car);
+            }
+            else if (car.Name.Length < 2)
+            {
+                Console.WriteLine("Lütfen iki karakter yada dahauun bir isism giriniz");
+            }
+            else
+            {
+                
+                Console.WriteLine("hatalı giriş");
+            }
         }
 
         public void Delete(Car car)
         {
-            _inMemoryCarDal.Delete(car);
+            _entityFramework.Delete(car);
         }
 
         public List<Car> GetAll()
         {
-            return _inMemoryCarDal.GetAll();
+            return _entityFramework.GetList();
         }
 
-        public List<Car> GetById(int id)
+        public List<Car> GetByBrantId(int brandId)
         {
-            return _inMemoryCarDal.GetById(id);
+           return _entityFramework.GetList(p => p.BrandId == brandId);
         }
+
+        public List<Car> GetByColorId(int colorId)
+        {
+            return _entityFramework.GetList(p => p.ColorId == colorId);
+        }
+
+
 
         public void Update(Car car)
         {
-            _inMemoryCarDal.Update(car);
+            _entityFramework.Update(car);
         }
     }
 }
