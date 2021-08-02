@@ -1,4 +1,5 @@
-﻿using Entitiy.Concrete;
+﻿using Entities.DTOs;
+using Entitiy.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Business.Abstract
         void Update(Car car);
         List<Car> GetByBrantId(int brandId);
         List<Car> GetByColorId(int colorId);
+        public List<CarDetailDto> GetCarDetails();
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entities.DTOs;
 using Entitiy.Concrete;
 using System;
 using System.Collections.Generic;
@@ -21,14 +22,14 @@ namespace Business.Concrete
         public void Add(Car car)
         {
 
-            if (car.Name.Length >= 2 && car.DailyPrice > 0)
+            if (car.CarName.Length >= 2 && car.DailyPrice > 0)
             {
                
                  _entityFramework.Add(car);
             }
-            else if (car.Name.Length < 2)
+            else if (car.CarName.Length < 2)
             {
-                Console.WriteLine("Lütfen iki karakter yada dahauun bir isism giriniz");
+                Console.WriteLine("Lütfen iki karakter yada daha uzun bir isim giriniz");
             }
             else
             {
@@ -57,7 +58,10 @@ namespace Business.Concrete
             return _entityFramework.GetList(p => p.ColorId == colorId);
         }
 
-
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _entityFramework.GetCarDetails();
+        }
 
         public void Update(Car car)
         {
