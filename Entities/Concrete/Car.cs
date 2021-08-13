@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entitiy.Concrete
+namespace Entities.Concrete
 {
     public class Car : IEntity
     {
