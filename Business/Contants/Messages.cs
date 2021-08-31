@@ -28,6 +28,11 @@ namespace Business.Contants
         public static string ColorUpdate = "Renk Güncellendi";
         public static string ColorAdded = "Renk Eklendi";
 
+        public static string CustomersListed = "Müşteriler Listelendi";
+        public static string CustomerDeleted = "Müşteri Silindi";
+        public static string CustomerUpdate = "Müşteri Güncellendi";
+        public static string CustomerAdded = "Müşteri Eklendi";
+
 
 
 

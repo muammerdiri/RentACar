@@ -16,7 +16,7 @@ namespace Business.Concrete
 
         ICarDal _entityFramework;
 
-        public CarManager(EfCarDal _entityFramework)
+        public CarManager(ICarDal _entityFramework)
         {
             this._entityFramework = _entityFramework;
         }

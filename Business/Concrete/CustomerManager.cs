@@ -22,25 +22,25 @@ namespace Business.Concrete
         {
 
             _customerDal.Add(customer);
-            return new SuccessResult(Messages.ColorAdded);
+            return new SuccessResult(Messages.CustomerAdded);
 
         }
 
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
-            return new SuccessResult(Messages.ColorDeleted);
+            return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public IDataResult<List<Customer>> GetAll()
         {
-            return new SuccessDataResult<List<Customer>>(_customerDal.GetList(), Messages.ColorsListed);
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetList(), Messages.CustomersListed);
         }
 
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
-            return new SuccessResult(Messages.ColorUpdate);
+            return new SuccessResult(Messages.CustomerUpdate);
         }
     }
 }
