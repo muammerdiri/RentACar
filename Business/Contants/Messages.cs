@@ -9,7 +9,7 @@ namespace Business.Contants
         public static string CarsListed = "Araçlar Listelendi";
         public static string CarAdded = "Araç Eklendi";
         public static string CarDelete = "Araç Silinidi";
-        public static string CarUpdate = "Araç Günccellendi";
+        public static string CarUpdate = "Araç Güncellendi";
         public static string InvalidName = "Geçersiz isim";
         public static string CarNotRented = "Araç Kiralanamadı";
         public static string CarRented = "Araç Kiralandı";
