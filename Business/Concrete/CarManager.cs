@@ -8,6 +8,8 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -20,15 +22,10 @@ namespace Business.Concrete
         {
             this._entityFramework = _entityFramework;
         }
-
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
 
-            if (car.CarName.Length <= 2 && car.DailyPrice <= 0)
-            {
-               
-                Console.WriteLine(Messages.InvalidName);
-            }
             _entityFramework.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
