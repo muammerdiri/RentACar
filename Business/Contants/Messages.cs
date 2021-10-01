@@ -33,8 +33,7 @@ namespace Business.Contants
         public static string CustomerUpdate = "Müşteri Güncellendi";
         public static string CustomerAdded = "Müşteri Eklendi";
 
-
-
-
+        internal static string ImagesListed="Fotoğraflar Listelendi";
+        internal static string ImageFound="Fotoğraf Bulundu";
     }
 }

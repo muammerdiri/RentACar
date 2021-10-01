@@ -56,6 +56,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>( _entityFramework.GetCarDetails(),Messages.CarsListed);
         }
 
+        public IDataResult<List<Car>> GetUnitPrice(int min, int max)
+        {
+            return new SuccessDataResult<List<Car>>(_entityFramework.GetList(c=>c.DailyPrice>=min && c.DailyPrice>=max),Messages.CarsListed);
+        }
+
+       
+
         public IResult Update(Car car)
         {
             _entityFramework.Update(car);
