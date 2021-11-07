@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Contants
@@ -35,5 +36,6 @@ namespace Business.Contants
 
         internal static string ImagesListed="Fotoğraflar Listelendi";
         internal static string ImageFound="Fotoğraf Bulundu";
+        internal static string AuthorizationDenied="Yetkilendirme reddedildi";
     }
 }

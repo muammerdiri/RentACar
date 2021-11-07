@@ -18,8 +18,8 @@ namespace Core.Utilities.Helper.FileHelper
 
             public static string Add(IFormFile file)
             {
-                string path = Environment.CurrentDirectory + @"\Media\wwwroot";
-                var sourcePath = Path.GetTempFileName();
+                string path = Environment.CurrentDirectory + @"\Media\wwwroot"; // Uygulamanın çalıştığı klasör
+                var sourcePath = Path.GetTempFileName(); // Geçici dosyanın tam yolunu verir.
                 if (file.Length > 0)
                 {
                     using (var stream = new FileStream(sourcePath, FileMode.Create))

@@ -38,9 +38,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ColorDeleted);
         }
 
-
-
-
+        public IDataResult<List<Color>> GetAll()
+        {
+            return new SuccessDataResult<List<Color>>(_colorDal.GetList(), Messages.ColorsListed);
+        }
 
         public IResult Update(Color color)
         {
@@ -48,10 +49,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ColorUpdate);
         }
 
-        IDataResult<List<Color>> IColorService.GetAll()
-        {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetList(), Messages.ColorsListed);
-        }
+        
         }
     }
 

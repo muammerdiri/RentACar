@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -22,10 +23,12 @@ namespace Business.Concrete
         {
             this._entityFramework = _entityFramework;
         }
+        
+
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-
             _entityFramework.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -35,6 +38,7 @@ namespace Business.Concrete
             _entityFramework.Delete(car);
             return new SuccessResult(Messages.CarDelete);
         }
+
 
         public IDataResult<List<Car>> GetAll()
         {
