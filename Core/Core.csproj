@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Aspects\Autofac\Security\" />
+  </ItemGroup>
+
 </Project>

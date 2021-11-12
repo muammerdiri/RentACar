@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -55,6 +56,7 @@ namespace WebAPI.Controllers
         [HttpGet("getcardetails")]
         public IActionResult GetCarDetail()
         {
+            Thread.Sleep(2000);
             var result = _carService.GetCarDetails();
 
             if (result.Success)
