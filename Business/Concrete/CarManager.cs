@@ -55,7 +55,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>> (_entityFramework.GetList(p => p.ColorId == colorId),Messages.CarsListed);
+            return new SuccessDataResult<List<Car>> (_entityFramework.GetList(c=>c.ColorId==colorId),Messages.CarsListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -75,5 +75,7 @@ namespace Business.Concrete
             _entityFramework.Update(car);
             return new SuccessResult(Messages.CarUpdate);
         }
+
+        
     }
 }

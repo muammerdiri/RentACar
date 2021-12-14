@@ -28,6 +28,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getunitprice")]
+        public IActionResult GetUnitPrice(int min,int max)
+        {
+            var result = _carService.GetUnitPrice(min,max);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpGet("getbybrandid")]
         public IActionResult GetByBrandId(int id)
@@ -41,8 +51,8 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbycolorid")]
-        public IActionResult GetByColorId(int id)
+        [HttpGet("getbycolor")]
+        public IActionResult GetByColor(int id)
         {
             var result = _carService.GetByColorId(id);
 
