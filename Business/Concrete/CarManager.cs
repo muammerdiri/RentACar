@@ -18,11 +18,11 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
 
-        ICarDal _entityFramework;
+        ICarDal _carDal;
 
         public CarManager(ICarDal _entityFramework)
         {
-            this._entityFramework = _entityFramework;
+            this._carDal = _entityFramework;
         }
         
 
@@ -31,48 +31,48 @@ namespace Business.Concrete
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
-            _entityFramework.Add(car);
+            _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
 
         public IResult Delete(Car car)
         {
-            _entityFramework.Delete(car);
+            _carDal.Delete(car);
             return new SuccessResult(Messages.CarDelete);
         }
 
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>( _entityFramework.GetList(),Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetList(),Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetByBrantId(int brandId)
         {
-           return new SuccessDataResult<List<Car>> (_entityFramework.GetList(p => p.BrandId == brandId),Messages.CarsListed);
+           return new SuccessDataResult<List<Car>> (_carDal.GetList(p => p.BrandId == brandId),Messages.CarsListed);
         }
         
 
         public IDataResult<List<Car>> GetByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>> (_entityFramework.GetList(c=>c.ColorId==colorId),Messages.CarsListed);
+            return new SuccessDataResult<List<Car>> (_carDal.GetList(c=>c.ColorId==colorId),Messages.CarsListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailDto>>( _entityFramework.GetCarDetails(),Messages.CarsListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarsListed);
         }
 
         public IDataResult<List<Car>> GetUnitPrice(int min, int max)
         {
-            return new SuccessDataResult<List<Car>>(_entityFramework.GetList(c=>c.DailyPrice>=min && c.DailyPrice>=max),Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetList(c=>c.DailyPrice>=min && c.DailyPrice>=max),Messages.CarsListed);
         }
 
        
 
         public IResult Update(Car car)
         {
-            _entityFramework.Update(car);
+            _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdate);
         }
 
